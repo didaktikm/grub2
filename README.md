@@ -34,8 +34,8 @@ mount -o remount,rw /
 Я воспользовался подсказкой Румянцева в слаке и поступил следующим образом:
 
 1. Добавил еще один диск в систему, создал раздел на нем, подмонтировал его в ```/mnt``` и скопировал туда ```/boot```.
-[root@localhost ~]# lsblk 
 ```
+[root@localhost ~]# lsblk 
 NAME              MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
 sda                 8:0    0    8G  0 disk 
 ├─sda1              8:1    0    1G  0 part /boot
@@ -62,7 +62,7 @@ sdb                 8:16   0    1G  0 disk
 ``` 
 4. Добавил репозиторий Румянцева и поставил из него GRUB2. 
 5. Установил grub на первый диск ```/dev/sda``` и пересоздал конфиг grub.
-6. Закоментировал отдельный раздел ```/boot```  ```/etc/fstab```.
+6. Закоментировал отдельный раздел ```/boot``` в ```/etc/fstab```.
 7. После перезагрузки переименовал Volume Group и заменил соответствующие значения в  ```/etc/fstab /etc/default/grub /boot/grub2/grub.cfg```
 ```
 [root@localhost ~]# lsblk 
